@@ -13,6 +13,7 @@ public class playerScript : MonoBehaviour
     public Rigidbody rb;
     public float badGuyForce;
     public float carForce;
+    public GameObject Gun;
 
     // Start is called before the first frame update
     void Start()
@@ -36,14 +37,16 @@ public class playerScript : MonoBehaviour
         {
             Destroy(other.gameObject);
             bulletCount = bulletCount + 1;
-            bullets.text = bulletCount.ToString() + "/10 Bullets";
+            bullets.text = bulletCount.ToString() + "/10 BULLETS";
 
 
         }
 
         if (bulletCount >= 10)
         {
-            bullets.text = "Get the Gun";
+            bullets.text = "GET THE GUN";
+            GameObject weapon = Instantiate(Gun, new Vector3(-23, 1, 36), transform.rotation);
+
         }
         //gun
         if (other.CompareTag("gun"))
@@ -54,7 +57,7 @@ public class playerScript : MonoBehaviour
 
         if (gunCount >= 1)
         {
-            bullets.text = "Yeah, I'm thinking I'm back";
+            bullets.text = "YEAH, I'M THINKING I'M BACK";
         }
 
         //bad guys and cars
