@@ -4,7 +4,11 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
+
+
+
 {
+    public Transform player;
     NavMeshAgent nma;
     float newPositionTimer = 0;
 
@@ -26,7 +30,7 @@ public class EnemyController : MonoBehaviour
             newPositionTimer = Random.Range(1, 15);
             // Compute a random position and assign it to the NavMeshAgent.
             Vector3 randomPosition = RandomNavmeshLocation(Random.Range(5, 10));
-            nma.SetDestination(randomPosition);
+            nma.SetDestination(player.position);
         }
     }
 
